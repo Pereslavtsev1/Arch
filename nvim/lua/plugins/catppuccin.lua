@@ -1,0 +1,43 @@
+return {
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		opts = {
+			transparent_background = true,
+			background = {
+				dark = "mocha",
+				light = "latte",
+			},
+			color_overrides = {
+				mocha = {
+					rosewater = "#ffd7b5",
+					-- flamingo = "#ffd7b5",
+					pink = "#ffb3b3",
+					mauve = "#f4c0ff",
+					red = "#ffb3b3",
+					maroon = "#ffb3b3",
+					peach = "#ffd7b5",
+					yellow = "#ffffff",
+					green = "#bfd34b",
+					teal = "#d7fda7",
+					sky = "#ffbc5d",
+					sapphire = "#c3ccff",
+					blue = "#ffbc5d",
+					lavender = "#ffbc5d",
+					text = "#efe0d2",
+					subtext1 = "#cccccc",
+					subtext0 = "#bbbbbb",
+					overlay2 = "#aaaaaa",
+					overlay1 = "#999999",
+					overlay0 = "#888888",
+					surface2 = "#777777",
+					surface1 = "#666666",
+					surface0 = "#555555",
+					base = "#19120a",
+					mantle = "#19120a",
+					crust = "#19120a",
+				},
+			},
+		},
+	},
+}
