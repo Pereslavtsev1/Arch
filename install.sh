@@ -5,6 +5,12 @@ install_tools() {
     tools=(
         git curl neovim btop nitch vesktop-bin amneziavpn-bin zoxide jq
         xh fd fzf nvidia nvidia-utils
+        psql
+        pulseaudio pulseaudio-alsa
+        pipewire pipewire-pulse wireplumber
+        tmux
+        lazygit
+        less
         nvibrant-bin nautilus yazi zen-browser-bin obsidian autoconf automake pavucontrol ripgrep eza unzip
         calf easyeffects
         noto-fonts-emoji matugen
