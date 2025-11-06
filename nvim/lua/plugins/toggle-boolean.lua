@@ -7,6 +7,6 @@ return {
       ["=="] = "!=",
       ["error"] = "warn",
     },
-    vim.keymap.set("n", "<leader>i", "<cmd>ToggleAlternate<cr>"),
+    vim.keymap.set("n", "<leader>t", "<cmd>ToggleAlternate<cr>"),
   },
 }

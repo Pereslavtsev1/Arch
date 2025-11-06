@@ -1,38 +1,25 @@
-local function setFormater()
-  local biome_config_found = vim.fn.findfile("biome.json", vim.fn.getcwd() .. ";") ~= ""
-  if biome_config_found then
-    return { "biome" }
+local function biome_or_prettier()
+  local cwd = vim.fn.getcwd()
+  local biome_config = vim.fn.findfile("biome.json", cwd .. ";")
+  local biome_dir = vim.fn.finddir(".biome", cwd .. ";")
+
+  local biome_available = biome_config ~= "" or biome_dir ~= ""
+
+  if vim.fn.executable("biome") == 1 and biome_available then
+    return { "biome", "biome-organize-imports" }
   else
-    return { "prettierd" }
+    return { "prettier" }
   end
 end
+
 return {
   "stevearc/conform.nvim",
   opts = {
     formatters_by_ft = {
-      javascript = setFormater(),
-      typescript = setFormater(),
-      javascriptreact = setFormater(),
-      typescriptreact = setFormater(),
-      html = setFormater(),
+      javascript = biome_or_prettier,
+      javascriptreact = biome_or_prettier,
+      typescript = biome_or_prettier,
+      typescriptreact = biome_or_prettier,
     },
-    format_on_save = {
-      timeout_ms = 500,
-      lsp_format = "fallback",
-    },
-    format_after_save = function()
-      local t_attached = vim.tbl_contains(
-        vim.tbl_map(function(c)
-          return c.name
-        end, vim.lsp.get_clients()),
-        "tailwindcss"
-      )
-      if not t_attached or not pcall(require, "tailwind-tools") then
-        return
-      end
-
-      vim.cmd("TailwindSort")
-      return { lsp_format = "fallback" }
-    end,
   },
 }

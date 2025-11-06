@@ -5,7 +5,7 @@ vim.g.mapleader = " "
 local keymap = vim.keymap
 
 keymap.set("n", "<c-a>", "ggVG")
-keymap.set("n", "<leader>q", "<cmd>q<cr>")
+keymap.set("n", "<leader>q!", "<cmd>q<cr>")
 keymap.set("n", "<leader>w", "<cmd>w<cr>")
 keymap.set("n", "<leader>x", "<cmd>x<cr>")
 keymap.set("n", "<ESC>", ":nohl<CR>", { desc = "Clear search highlights" })
@@ -18,9 +18,17 @@ keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }
 keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 -- Increment / Decrement 111
-keymap.set("x", "+", "<C-a>gv", { desc = "Increment" })
-keymap.set("x", "-", "<C-x>gv", { desc = "Decrement" })
 keymap.set("n", "sh", "<C-w>h")
 keymap.set("n", "sk", "<C-w>k")
 keymap.set("n", "sj", "<C-w>j")
 keymap.set("n", "sl", "<C-w>l")
+
+keymap.set("n", "<leader>h", "<C-w>h", { desc = "Move to left window" })
+keymap.set("n", "<leader>j", "<C-w>j", { desc = "Move to lower window" })
+keymap.set("n", "<leader>k", "<C-w>k", { desc = "Move to upper window" })
+keymap.set("n", "<leader>l", "<C-w>l", { desc = "Move to right window" })
+
+keymap.set("n", "<C-h>", "<cmd>vertical resize -1<CR>", { desc = "Resize window left" })
+keymap.set("n", "<C-l>", "<cmd>vertical resize +1<CR>", { desc = "Resize window right" })
+keymap.set("n", "<C-j>", "<cmd>resize -1<CR>", { desc = "Resize window down" })
+keymap.set("n", "<C-k>", "<cmd>resize +1<CR>", { desc = "Resize window up" })

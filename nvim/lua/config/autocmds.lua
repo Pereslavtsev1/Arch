@@ -6,3 +6,10 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = { "*.html", "*.js", "*.jsx", "*.ts", "*.tsx", "*.vue" },
+  callback = function()
+    vim.cmd("silent! TailwindSort")
+  end,
+  desc = "Auto-sort Tailwind classes before save",
+})

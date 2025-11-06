@@ -21,7 +21,6 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.swapfile = false
 opt.autoread = true
-vim.lsp.set_log_level("off")
-vim.g.snacks_animate = false
+vim.g.snacks_animate = true
 vim.g.lazyvim_picker = "snacks"
 vim.opt.laststatus = 3
